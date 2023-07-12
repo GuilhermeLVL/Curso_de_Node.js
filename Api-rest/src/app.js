@@ -2,6 +2,9 @@ import express from 'express'
 
 const app = express()
 
+
+app.use(express.json())
+
 //Mock
 const selecoes = [
     {id:1, selecao:'Brasil', grupo:'G'},
