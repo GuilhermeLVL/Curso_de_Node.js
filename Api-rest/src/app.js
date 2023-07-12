@@ -23,5 +23,12 @@ app.get('/selecoes', (req, res) => {
     res.send(selecoes)
 })
 
+app.post('/selecoes',(req, res) => {
+
+    selecoes.push(req.body)
+
+    res.status(201).send('Selecao cadastrada com sucesso!')
+})
+
 
 export default app
