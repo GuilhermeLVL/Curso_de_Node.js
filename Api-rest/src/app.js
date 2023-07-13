@@ -29,13 +29,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/selecoes', (req, res) => {
-
-    res.send(selecoes)
+    
+    
 })
 
 app.get('/selecoes/:id', (req, res) => {
-  let index = req.params.id
-  console.log(index)
+  
+  res.json( buscarSelecaoPorId(req.params.id))
 })
 
 app.post('/selecoes',(req, res) => {
