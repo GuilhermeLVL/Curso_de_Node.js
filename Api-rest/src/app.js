@@ -56,8 +56,10 @@ app.delete('/selecoes/:id', (req, res) => {
   app.put('/selecoes/:id', (req, res) => {
 
     let index = buscarSelecaoPorId(req.params.id)
-    selecoes.splice(index, 1)
-    res.send(`Selecao excluida com sucesso ID: ${req.params.id}`)
+    selecoes[index].selecao = req.body.selecao
+    selecoes[index].grupo =   req.body.selecao
+
+    res.json(selecoes)
   })
 
 
