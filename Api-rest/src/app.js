@@ -13,6 +13,13 @@ const selecoes = [
     {id:4, selecao:'Camaroes', grupo:'G'},
 ]
 
+
+function buscarSelecaoPorId(id){
+    return selecoes.filter(selecao => selecao.id == id)
+    
+}
+
+
 const port = 3000
 
 app.get('/', (req, res) => {
