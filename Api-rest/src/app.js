@@ -19,6 +19,9 @@ function buscarSelecaoPorId(id){
 
 }
 
+function buscarIdexSelecao(id){
+    return selecoes.findIndex( selecao => selecao.id == id)
+}
 
 const port = 3000
 
