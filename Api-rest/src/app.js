@@ -22,21 +22,19 @@ function buscarSelecaoPorId(id){
 
 const port = 3000
 
+
 app.get('/', (req, res) => {
 
     res.status(200).send('Hello World!')
 
 })
 
-app.get('/selecoes', (req, res) => {
-    
-    
-})
 
 app.get('/selecoes/:id', (req, res) => {
   
   res.json( buscarSelecaoPorId(req.params.id))
 })
+
 
 app.post('/selecoes',(req, res) => {
 
