@@ -21,6 +21,7 @@ function buscarSelecaoPorId(id){
 
 function buscarIdexSelecao(id){
     return selecoes.findIndex( selecao => selecao.id == id)
+    
 }
 
 const port = 3000
@@ -55,7 +56,7 @@ app.delete('/selecoes/:id', (req, res) => {
 
   app.put('/selecoes/:id', (req, res) => {
 
-    let index = buscarSelecaoPorId(req.params.id)
+    let index = buscarIdexSelecao(req.params.id)
     selecoes[index].selecao = req.body.selecao
     selecoes[index].grupo =   req.body.selecao
 
