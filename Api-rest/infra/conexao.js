@@ -5,7 +5,7 @@ const conexao = mysql.createConnection({
     port:'3306',
     user:"root",
     password: "16dejulho2002",
-    database:bd-copa
+    database:'bd-copa'
 })
 
 export default conexao

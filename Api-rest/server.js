@@ -8,11 +8,13 @@ conexao.connect( (erro) => {
     console.log(erro)
    }else{
     console.log('Deu Bom')
+
+    app.listen(PORT, () =>{
+        console.log(`${PORT}`)
+    })
    }
 
 })
 
-app.listen(PORT, () =>{
-    console.log(`${PORT}`)
-})
+
 
