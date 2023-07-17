@@ -61,7 +61,7 @@ app.delete('/selecoes/:id', (req, res) => {
     selecoes[index].grupo =   req.body.selecao
 
     res.json(selecoes)
-  })a
+  })
 
 
 export default app
