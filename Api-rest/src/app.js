@@ -19,12 +19,6 @@ function buscarIdexSelecao(id){
 const port = 3000
 
 
-app.get('/', (req, res) => {
-
-    res.status(200).send('Hello World!')
-
-})
-
 
 app.get('/selecoes/:id', (req, res) => {
   
