@@ -1,4 +1,5 @@
 import express from 'express'
+import conexao from '../infra/conexao'
 
 const app = express()
 
@@ -18,6 +19,23 @@ function buscarIdexSelecao(id){
 
 const port = 3000
 
+app.post('/selecoes',(req, res) => {
+
+ 
+const sql = 'SELECT * FROM selecoes;'
+
+ conexao.query(sql, (erro, resultado) => {
+
+  if(erro){
+    console.log(erro)
+
+  }else{
+    res.status(200).json(resultado)
+  }
+
+ })
+ 
+})
 
 
 app.get('/selecoes/:id', (req, res) => {
