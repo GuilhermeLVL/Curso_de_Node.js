@@ -38,7 +38,24 @@ app.post("/products",(request, response) => {
     products.push(product)
 
    return response.json(product)
+});
+
+
+app.get("/products", (request, response) =>{
+
+
+    return response.json(products)
+
 })
+
+app.get("/pruducts/:id", (request, response) =>{
+const {id } = response.params
+const product = products.find(product => product.id === id)
+
+return response.json(product)
+
+})
+
 
 //Definindo a porta padrao como 4002
 app.listen(4002,() => console.log('servidor esta rodando na porta 4002'))
