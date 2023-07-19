@@ -5,7 +5,9 @@ const app = express()
 
 app.get("/primeira-rota",(request, response) => {
 
-    return response.send("Acessou a primeira rota");
+    return response.json({
+        message:"Acessou a primeira rota"
+    })
 })
 
 //Definindo a porta padrao como 4002
