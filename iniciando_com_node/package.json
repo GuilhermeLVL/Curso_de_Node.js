@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Primeiro projeto 2023",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "author": "Guilherme pinheiro",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
