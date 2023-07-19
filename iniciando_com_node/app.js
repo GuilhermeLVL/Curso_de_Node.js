@@ -23,7 +23,7 @@ params => /product/123123332
 Query => /product?id=12312312&value=331231
 */
 
-// url 
+// cadastra itens na lista do sistema
 app.post("/products",(request, response) => {
     //Nome e Preco
 
@@ -40,7 +40,7 @@ app.post("/products",(request, response) => {
    return response.json(product)
 });
 
-
+//Mostra a lista de itens
 app.get("/products", (request, response) =>{
 
 
@@ -48,12 +48,28 @@ app.get("/products", (request, response) =>{
 
 })
 
+//Busca item por id
 app.get("/pruducts/:id", (request, response) =>{
-const {id } = response.params
+const {id } = request.params
 const product = products.find(product => product.id === id)
 
 return response.json(product)
 
+})
+
+//mostra e altera as informacoes
+app.put("/products/:id", (request, response) =>{
+    const {id } = request.params 
+    const {name, price} = request.body;
+
+    const productIndex = products.findIndex((product) => product.id === id)
+    products[productIndex] = {
+        ...products[productIndex],
+        name,
+        price
+    }
+
+    return response.json({message: "produto alterado com sucesso"})
 })
 
 
