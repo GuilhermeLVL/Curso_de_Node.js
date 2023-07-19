@@ -1,6 +1,9 @@
 //Inicializando o servidor com o Express
 const express = require("express");
 
+const { randomUUID} = require("crypto");
+const { readSync } = require("fs");
+
 const app = express()
 
 app.use(express.json())
@@ -26,12 +29,15 @@ app.post("/products",(request, response) => {
 
     const {name, price} = request.body;
 
-    products.push({
+    const product = {
         name,
-        price
-    })
+        price,
+        id: randomUUID()
+    }
 
-    console.log(body)
+    products.push(product)
+
+   return response.json(product)
 })
 
 //Definindo a porta padrao como 4002
