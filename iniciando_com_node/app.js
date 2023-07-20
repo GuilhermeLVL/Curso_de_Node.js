@@ -39,6 +39,14 @@ app.post("/products",(request, response) => {
 
     products.push(product)
 
+    fs.writeFile("products.json", products, (err) => {
+        if(err){
+            console.log(err)
+        }else{
+            console.log("Produto cadastrado")
+        }
+    })
+
    return response.json(product)
 });
 
@@ -54,6 +62,8 @@ app.get("/products", (request, response) =>{
 app.get("/pruducts/:id", (request, response) =>{
 const {id } = request.params
 const product = products.find(product => product.id === id)
+const fs = require("fs")
+
 
 return response.json(product)
 
