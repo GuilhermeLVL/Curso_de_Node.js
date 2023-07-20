@@ -10,13 +10,7 @@ app.use(express.json())
 
 let products = [];
 
-fs.readFile("products.json", "utf-8",(err, data) =>{
-    if (err) {
-        console.log(err)
-    } else {
-    products = JSON.parse(data)
-    }
-})
+
 /*
 post = inseriri um dado
 get = busca 1 ou mais dados
@@ -44,13 +38,7 @@ app.post("/products",(request, response) => {
 
     products.push(product)
 
-    fs.writeFile("products.json",JSON.stringify(products) , (err) => {
-        if(err){
-            console.log(err)
-        }else{
-            console.log("Produto cadastrado")
-        }
-    })
+  createProductFile()
 
    return response.json(product)
 });
@@ -85,6 +73,7 @@ app.put("/products/:id", (request, response) =>{
         name,
         price
     }
+    createProductFile()
 
     return response.json({message: "produto alterado com sucesso"})
 })
@@ -99,6 +88,18 @@ app.delete("/products/:id", (request, response) => {
 
     return response.json({message: "produto removido com sucesso"})
 })
+
+
+function createProductFile(){
+    fs.readFile("products.json", "utf-8",(err, data) =>{
+        if (err) {
+            console.log(err)
+        } else {
+        products = JSON.parse(data)
+        }
+    })
+
+}
 
 //Definindo a porta padrao como 4002
 app.listen(4002,() => console.log('servidor esta rodando na porta 4002'))
