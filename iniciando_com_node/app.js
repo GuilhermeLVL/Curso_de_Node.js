@@ -3,6 +3,8 @@ const express = require("express");
 
 const { randomUUID} = require("crypto");
 const { readSync } = require("fs");
+const e = require("express");
+const { request } = require("http");
 
 const app = express()
 
@@ -72,6 +74,16 @@ app.put("/products/:id", (request, response) =>{
     return response.json({message: "produto alterado com sucesso"})
 })
 
+
+app.delete("/products/:id", (request, response) => {
+    const {id} = request.params
+
+    const productIndex = products.findIndex((product) => product.id === id)
+
+    products.splice(productIndex, 1)
+
+    return response.json({message: "produto removido com sucesso"})
+})
 
 //Definindo a porta padrao como 4002
 app.listen(4002,() => console.log('servidor esta rodando na porta 4002'))

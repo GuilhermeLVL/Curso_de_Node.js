@@ -11,3 +11,12 @@ GET http://localhost:4002/products
 
 ###
 GET http://localhost:4002/products/4aa35a07-8a61-4021-bf01-9d2d026c5cbd
+
+
+PUT http://localhost:4002/products/
+Content-Type: application/json
+
+{
+    "name":"maleta de cnetinhas e lapis",
+    "price":313
+}
