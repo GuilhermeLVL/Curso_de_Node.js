@@ -6,8 +6,13 @@ const app = express()
 //Convertendo a saida do Express para Json
 app.use(express.json())
 
-//Definindo a Url com o arquivo Json
+//Definindo a Url padrao c
 app.get('/',(req,res) =>{
 
     res.send('Hello World!')
+})
+
+//Definindo a porta padrao do servidor http://localhost:3000/
+app.listen(3000, () =>{
+    console.log('Escutando a porta 3000')
 })
