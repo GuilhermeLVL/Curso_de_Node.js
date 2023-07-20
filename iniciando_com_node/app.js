@@ -2,10 +2,8 @@
 const express = require("express");
 
 const { randomUUID} = require("crypto");
-const { readSync } = require("fs");
-const e = require("express");
-const { request } = require("http");
 
+const fs = require("fs")
 const app = express()
 
 app.use(express.json())
@@ -39,7 +37,7 @@ app.post("/products",(request, response) => {
 
     products.push(product)
 
-    fs.writeFile("products.json", products, (err) => {
+    fs.writeFile("products.json",JSON.stringify(products) , (err) => {
         if(err){
             console.log(err)
         }else{
