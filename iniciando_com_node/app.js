@@ -8,8 +8,15 @@ const app = express()
 
 app.use(express.json())
 
-const products = [];
+let products = [];
 
+fs.readFile("products.json", "utf-8",(err, data) =>{
+    if (err) {
+        console.log(err)
+    } else {
+    products = JSON.parse(data)
+    }
+})
 /*
 post = inseriri um dado
 get = busca 1 ou mais dados
