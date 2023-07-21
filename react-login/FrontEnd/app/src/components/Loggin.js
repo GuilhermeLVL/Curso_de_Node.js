@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 function Login(){
@@ -9,6 +10,9 @@ const handleLogin = async (e) => {
     e.preventDefault();
 
     console.log(email, password);
+
+    const response = await axios.post ('http://localhost:3000/login', JSON.stringify({email, password})
+    )
 }
 
 
