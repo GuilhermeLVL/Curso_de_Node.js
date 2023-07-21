@@ -11,8 +11,8 @@ const handleLogin = async (e) => {
 
     console.log(email, password);
 
-    const response = await axios.post ('http://localhost:3000/login', JSON.stringify({email, password})
-    )
+    const response = await axios.post ('http://localhost:3000/login', JSON.stringify({email, password}), {headers: {'Content-Type': 'application/json'}});
+    
 }
 
 

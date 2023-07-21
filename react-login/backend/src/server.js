@@ -2,10 +2,12 @@
 
 const express = require("express")
 const routes = require("./routes");
+const cors = require("cors");
 const app = express()
 
 //Convertendo a saida do Express para Json
 app.use(express.json())
+app.use(cors())
 app.use(routes)
 
 //Definindo a Url padrao c
