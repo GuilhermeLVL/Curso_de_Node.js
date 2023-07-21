@@ -1,10 +1,12 @@
 //Importando o Express
 
 const express = require("express")
+const routes = require("./routes");
 const app = express()
 
 //Convertendo a saida do Express para Json
 app.use(express.json())
+app.use(routes)
 
 //Definindo a Url padrao c
 app.get('/',(req,res) =>{
@@ -15,4 +17,6 @@ app.get('/',(req,res) =>{
 //Definindo a porta padrao do servidor http://localhost:3000/
 app.listen(3000, () =>{
     console.log('Escutando a porta 3000')
+    
 })
+
