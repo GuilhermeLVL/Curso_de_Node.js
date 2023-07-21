@@ -5,15 +5,21 @@ function Login(){
 
 const [email, setEmail] = useState ('')
 const [password, setPassword] = useState ('')
+const [error, setError] = useState ('')
 
 const handleLogin = async (e) => {
     e.preventDefault();
 
     console.log(email, password);
 
-    const response = await axios.post ('http://localhost:3000/login', JSON.stringify({email, password}), {headers: {'Content-Type': 'application/json'}});
-    
-}
+    try{
+         const response = await axios.post ('http://localhost:3000/login', JSON.stringify({email, password}), {headers: {'Content-Type': 'application/json'}});
+    }catch (error) {
+        if(!error?.response){
+            setError('Erro ao acessar o servidor')
+        }else if(error.response.status == 401){
+            setError('Usario ou senha invalidos')
+        }
 
 
 
@@ -34,6 +40,8 @@ const handleLogin = async (e) => {
               >Login</button>
             
             </form>
+
+            <p>{error}</p>
           </div>
     )
   }
