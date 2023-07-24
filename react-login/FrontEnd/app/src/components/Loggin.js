@@ -27,7 +27,10 @@ const handleLogin = async (e) => {
 }
 
 
-
+const handleLogout = async (e) => {
+    e.preventDefault()
+    setUser(null)
+}
     return(
     <div className='login-form-wrap'>
 
@@ -57,6 +60,7 @@ const handleLogin = async (e) => {
 
         <div>
         <h2>Ola, {user.name} </h2>
+        <button type="button" className="btn-login" onClick={(e) => handleLogout(e)}></button>
         </div>
     )
   }
