@@ -6,6 +6,7 @@ function Login(){
 const [email, setEmail] = useState ('')
 const [password, setPassword] = useState ('')
 const [error, setError] = useState ('')
+const [user, setUser] = useState (null)
 
 const handleLogin = async (e) => {
     e.preventDefault();
@@ -14,6 +15,8 @@ const handleLogin = async (e) => {
 
     try{
          const response = await axios.post ('http://localhost:3000/login', JSON.stringify({email, password}), {headers: {'Content-Type': 'application/json'}});
+
+         setUser(response.data);
     }catch (error) {
         if(!error?.response){
             setError('Erro ao acessar o servidor')
@@ -27,7 +30,10 @@ const handleLogin = async (e) => {
 
     return(
     <div className='login-form-wrap'>
-            <h2>Login</h2>
+
+        {user == null ? ( 
+        <div>
+        <h2>Login</h2>
             <form className='login-form'>
             <input type='email' name='email' placeholder='Email' required onChange={(e) => setEmail(e.target.value)}></input>
             <input type='password' name='password' placeholder='Password' required
@@ -42,9 +48,19 @@ const handleLogin = async (e) => {
             
             </form>
 
-            <p>{error}</p>
+            <p>{error}</p> 
+           
           </div>
+          
+          
+    ) : (
+
+        <div>
+        <h2>Ola, {user.name} </h2>
+        </div>
     )
   }
-
+</div>
+)
+}
   export default Login
