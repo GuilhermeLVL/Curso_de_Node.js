@@ -30,6 +30,7 @@ const handleLogin = async (e) => {
 const handleLogout = async (e) => {
     e.preventDefault()
     setUser(null)
+    setError("")
 }
     return(
     <div className='login-form-wrap'>
