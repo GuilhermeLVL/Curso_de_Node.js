@@ -13,7 +13,7 @@ function buscarSelecaoPorId(id){
 }
 
 function buscarIdexSelecao(id){
-    return selecoes.findIndex( selecao a=> selecao.id == id)
+    return selecoes.findIndex( selecao => selecao.id == id)
     
 }
 
