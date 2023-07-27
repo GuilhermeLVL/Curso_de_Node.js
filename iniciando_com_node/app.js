@@ -58,7 +58,7 @@ const product = products.find(product => product.id === id)
 const fs = require("fs")
 
 
-return response.json(product)'
+return response.json(product)
 
 })
 
