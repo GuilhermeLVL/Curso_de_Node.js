@@ -1,5 +1,5 @@
 import express from 'express'
-import conexao from './app/database/conexao.js'
+
 
 import selecaoControler from './app/controllers/selecaoControler.js'
 

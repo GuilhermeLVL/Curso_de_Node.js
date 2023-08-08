@@ -1,4 +1,7 @@
+import conexao from "../database/conexao.js"
+
 class SelecaoControler {
+    
 
     index(req, res) {
         // res.status(200).send(selecoes)
@@ -11,7 +14,7 @@ class SelecaoControler {
             }
         })
     }
-    
+
 
     show(req, res) {
         // res.json(buscarSelecaoPorId(req.params.id))
