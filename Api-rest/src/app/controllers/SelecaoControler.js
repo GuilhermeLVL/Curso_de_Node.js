@@ -11,6 +11,7 @@ class SelecaoControler {
             }
         })
     }
+    
 
     show(req, res) {
         // res.json(buscarSelecaoPorId(req.params.id))
@@ -26,6 +27,7 @@ class SelecaoControler {
         })
     }
 
+
     store(req, res) {
         // selecoes.push(req.body)
         // res.status(201).send('Seleção cadastrada com sucesso!')
@@ -40,6 +42,7 @@ class SelecaoControler {
         })
     }
 
+
     update(req, res) {
   
         const id = req.params.id
@@ -53,6 +56,8 @@ class SelecaoControler {
             }
         })
     }
+
+
     delete(req, res){
     
         const id = req.params.id
@@ -69,5 +74,5 @@ class SelecaoControler {
 
 }
 
-//Padrao singleTpon
+//Padrao singleTon
 export default new SelecaoControler()
