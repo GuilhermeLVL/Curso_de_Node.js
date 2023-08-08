@@ -1,5 +1,5 @@
 import express from 'express'
-import conexao from '../infra/conexao.js'
+import conexao from './app/database/conexao.js'
 const app = express()
 
 // indicar para o express ler body com json
