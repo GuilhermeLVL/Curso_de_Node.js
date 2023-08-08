@@ -16,17 +16,7 @@ function buscarIndexSelecao(id) {
 }
 
 // ROTAS
-app.get('/selecoes', (req, res) => {
-    // res.status(200).send(selecoes)
-    const sql = "SELECT * FROM selecoes;"
-    conexao.query(sql, (erro, resultado) => {
-        if(erro) {
-            res.status(404).json({ 'erro': erro})
-        } else {
-            res.status(200).json(resultado)
-        }
-    })
-})
+app.get('/selecoes', 
 
 app.get('/selecoes/:id',(req, res) => {
     // res.json(buscarSelecaoPorId(req.params.id))
