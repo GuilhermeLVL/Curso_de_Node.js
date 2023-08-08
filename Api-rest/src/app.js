@@ -1,5 +1,8 @@
 import express from 'express'
 import conexao from './app/database/conexao.js'
+
+import selecaoControler from './app/controllers/selecaoControler.js'
+
 const app = express()
 
 // indicar para o express ler body com json
@@ -16,62 +19,14 @@ function buscarIndexSelecao(id) {
 }
 
 // ROTAS
-app.get('/selecoes', 
+app.get('/selecoes', selecaoControler.index)
 
-app.get('/selecoes/:id',(req, res) => {
-    // res.json(buscarSelecaoPorId(req.params.id))
-    const id = req.params.id
-    const sql = "SELECT * FROM selecoes WHERE id=?;"
-    conexao.query(sql, id, (erro, resultado) => {
-        const linha = resultado[0]
-        if(erro) {
-            res.status(404).json({ 'erro': erro})
-        } else {
-            res.status(200).json(linha)
-        }
-    })
-})
+app.get('/selecoes/:id', selecaoControler.show)
 
-app.post('/selecoes', (req, res) => {
-    // selecoes.push(req.body)
-    // res.status(201).send('Seleção cadastrada com sucesso!')
-    const selecao = req.body
-    const sql = "INSERT INTO selecoes SET ?"
-    conexao.query(sql, selecao, (erro, resultado) => {
-        if(erro) {
-            res.status(404).json({ 'erro': erro})
-        } else {
-            res.status(201).json(resultado)
-        }
-    })
-})
+app.post('/selecoes', selecaoControler.store)
 
-app.put('/selecoes/:id', (req, res) => {
-  
-    const id = req.params.id
-    const selecao = req.body
-    const sql = "UPDATE selecoes SET ? WHERE id=?;"
-    conexao.query(sql, [selecao, id], (erro, resultado) => {
-        if(erro) {
-            res.status(404).json({ 'erro': erro})
-        } else {
-            res.status(200).json(resultado)
-        }
-    })
-})
+app.put('/selecoes/:id', selecaoControler.update)
 
-app.delete('/selecoes/:id', (req, res) => {
-    
-    const id = req.params.id
-    const sql = "DELETE FROM selecoes WHERE id=?;"
-    conexao.query(sql, id, (erro, resultado) => {
-        const linha = resultado[0]
-        if(erro) {
-            res.status(404).json({ 'erro': erro})
-        } else {
-            res.status(200).json(linha)
-        }
-    })
-})
+app.delete('/selecoes/:id',selecaoControler.delete)
 
 export default app
