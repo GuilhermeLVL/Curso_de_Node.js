@@ -57,10 +57,7 @@ app.post('/selecoes', (req, res) => {
 })
 
 app.put('/selecoes/:id', (req, res) => {
-    // let index = buscarIndexSelecao(req.params.id)
-    // selecoes=[index].selecao = req.body.selecao
-    // selecoes=[index].grupo   = req.body.grupo
-    // res.json(selecoes)
+  
     const id = req.params.id
     const selecao = req.body
     const sql = "UPDATE selecoes SET ? WHERE id=?;"
@@ -74,9 +71,7 @@ app.put('/selecoes/:id', (req, res) => {
 })
 
 app.delete('/selecoes/:id', (req, res) => {
-    // let index = buscarIndexSelecao(req.params.id)
-    // selecoes.splice(index, 1)
-    // res.send(`Seleção com id ${req.params.id} excluída com sucesso!')
+    
     const id = req.params.id
     const sql = "DELETE FROM selecoes WHERE id=?;"
     conexao.query(sql, id, (erro, resultado) => {
