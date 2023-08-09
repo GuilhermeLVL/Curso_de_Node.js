@@ -12,8 +12,10 @@ class SelecaoControler {
 
 
     show(req, res) {
-        // res.json(buscarSelecaoPorId(req.params.id))
-       
+        
+        const id = req.params.id
+        const row = selecaoRepository.findById()
+        res.json(row)
     }
 
 
