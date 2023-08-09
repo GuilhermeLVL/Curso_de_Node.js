@@ -38,7 +38,18 @@ findById(id){
         })
        })
 }
-update(){}
+update(selecao, id){
+
+    const sql = "UPDATE selecoes SET ? WHERE id=?;"
+    return new Promise((resolve, reject) =>{
+        conexao.query(sql, [selecao,id], (erro, resultado) => {
+            if (erro) return reject("Nao foi possivel atualizar")
+    
+            const row = JSON.parse(JSON.stringify(resultado))
+            return resolve(row)
+        })
+       })
+}
 delete(){}
 
 }
