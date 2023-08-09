@@ -19,18 +19,11 @@ class SelecaoControler {
     }
 
 
-    store(req, res) {
-        // selecoes.push(req.body)
-        // res.status(201).send('Seleção cadastrada com sucesso!')
+   async store(req, res) {
+        
         const selecao = req.body
-        const sql = "INSERT INTO selecoes SET ?"
-        conexao.query(sql, selecao, (erro, resultado) => {
-            if(erro) {
-                res.status(404).json({ 'erro': erro})
-            } else {
-                res.status(201).json(resultado)
-            }
-        })
+        const row = await selecaoRepository.create(selecao)
+        res.json(row)
     }
 
 

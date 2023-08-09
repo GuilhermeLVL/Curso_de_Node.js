@@ -2,7 +2,18 @@ import conexao from "../database/conexao.js"
 
 class selecaoRepository{
 //crud
-create(){}
+create(selecao){
+
+    const sql = "INSERT INTO selecoes SET ?"
+    return new Promise((resolve, reject) =>{
+     conexao.query(sql, selecao, (erro, resultado) => {
+         if (erro) return reject("Nao foi possivel cadastrar")
+ 
+         const row = JSON.parse(JSON.stringify(resultado))
+         return resolve(row)
+        })
+    })
+}
 
 findAll(){
     const sql = "SELECT * FROM selecoes;"
