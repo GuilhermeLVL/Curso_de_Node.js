@@ -50,7 +50,18 @@ update(selecao, id){
         })
        })
 }
-delete(){}
+delete(id){
+
+    const sql = "DELETE FROM selecoes WHERE id=?;"
+    return new Promise((resolve, reject) =>{
+        conexao.query(sql, id, (erro, resultado) => {
+            if (erro) return reject("Nao foi possivel deletar")
+    
+            const row = JSON.parse(JSON.stringify(resultado))
+            return resolve(row)
+        })
+       })
+}
 
 }
 
