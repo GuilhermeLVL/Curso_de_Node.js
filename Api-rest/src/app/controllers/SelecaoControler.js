@@ -11,10 +11,10 @@ class SelecaoControler {
     }
 
 
-    show(req, res) {
-        
+    async show(req, res) {
+
         const id = req.params.id
-        const row = selecaoRepository.findById()
+         const row = await selecaoRepository.findById(id)
         res.json(row)
     }
 
