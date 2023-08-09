@@ -4,9 +4,9 @@ import selecaoRepository from "../repositories/selecaoRepository.js"
 class SelecaoControler {
     
 
-    index(req, res) {
+    async index(req, res) {
         // res.status(200).send(selecoes)
-       const row = selecaoRepository.findAll()
+       const row = await selecaoRepository.findAll()
        res.json(row)
     }
 
