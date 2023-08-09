@@ -1,4 +1,3 @@
-import conexao from "../database/conexao.js"
 import selecaoRepository from "../repositories/selecaoRepository.js"
 
 class SelecaoControler {
