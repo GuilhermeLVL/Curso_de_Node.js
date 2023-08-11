@@ -5,14 +5,7 @@ class selecaoRepository{
 create(selecao){
 
     const sql = "INSERT INTO selecoes SET ?"
-    return new Promise((resolve, reject) =>{
-     conexao.query(sql, selecao, (erro, resultado) => {
-         if (erro) return reject("Nao foi possivel cadastrar")
- 
-         const row = JSON.parse(JSON.stringify(resultado))
-         return resolve(row)
-        })
-    })
+   
 }
 
 findAll(){
