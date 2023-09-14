@@ -42,13 +42,23 @@ server.get('/videos',() => {
     return 'Hello World'
 })
 
+
+//O ID de '/videos/id' e um Route Parameters
+//tem a funcao e de expecificar o elemento 
+//que sera manipulado pelo metodo
+
 //Rota para {-ATUALIZAR-} o video
 server.put('/videos/id',() => {
     return 'Hello Guilherme'
 })
-server.get('/node',() => {
+
+//Rota para {-DELETAR-} o video
+server.delete('/videos/id',() => {
     return 'Hello Amanda'
 })
+
+
+
 
 server.listen({
     port: 3333,
