@@ -1,12 +1,13 @@
-import {createServer} from 'node:http';
+import {createServer} from 'node:http'
 
 
-//Request faz tem afuncao de buscar dados(Busca no Back).
-//Response Devolve o resultado buscado pelo Request(Mostra no Front).
-const server = createServer((request, response) => {
-  console.log("oi")
+//Request busca as informacoes no (BackEnd).
+//Response Mostra as informacoes trazidas pelo Request no (FrontEND).
 
-  return response.enn()
+const server = createServer((request , response) => {
+console.log('Oi');
+
+
 })
 
 server.listen(3333)
