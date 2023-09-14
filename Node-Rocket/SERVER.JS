@@ -5,7 +5,7 @@ import {createServer} from 'node:http'
 //Response Mostra as informacoes trazidas pelo Request no (FrontEND).
 
 const server = createServer((request , response) => {
-console.log('Oi');
+return response.write("ola")
 
 
 })
