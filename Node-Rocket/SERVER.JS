@@ -14,7 +14,11 @@ return response.write("ola")
 server.listen(3333)
 */
 
+
 import { fastify } from "fastify";
+
+import {DatabaseMemory} from './database-memory.js'
+
 const server = fastify()
 
 /****  O 4 Metodos mais famosos  ****/
