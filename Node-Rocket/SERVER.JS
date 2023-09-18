@@ -21,6 +21,9 @@ import {DatabaseMemory} from './database-memory.js'
 
 const server = fastify()
 
+const database = new DatabaseMemory()
+
+
 /****  O 4 Metodos mais famosos  ****/
 
         //Get => Buscar os dados
@@ -37,8 +40,17 @@ const server = fastify()
         //Route Parameters(Informacao que expecifica o dado buscado (Id) )
 
 //Rota para {-CRIAR-} o video
-server.post('/videos',() =>{
-    return ""
+server.post('/videos',(request, reply) =>{
+    database.create({
+        title: 'Video 01',
+        description: 'Esse e o video 01',
+        duration:180,
+
+    })
+
+    console.log(database.list())
+
+    return reply.status(201).send()
 })
 
 //Rota para {-BUSCAR-} o video
